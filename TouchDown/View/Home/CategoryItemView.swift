@@ -8,13 +8,38 @@
 import SwiftUI
 
 struct CategoryItemView: View {
+    
+    let category: Category
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            
+        }){
+            HStack{
+                Image(category.image)
+                    .renderingMode(.template)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.gray)
+                
+                Text(category.name.uppercased())
+                    .fontWeight(.light)
+                    .foregroundColor(.gray)
+            }
+            .padding()
+            .background(Color.white.cornerRadius(12))
+            .background(RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.gray, lineWidth: 1))
+        }
     }
 }
 
 struct CategoryItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryItemView()
+        CategoryItemView(category: categories[2])
+            .previewLayout(.sizeThatFits)
+            .padding()
+            .background(colorBackground)
     }
 }

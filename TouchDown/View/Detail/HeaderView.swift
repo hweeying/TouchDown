@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct HeaderView: View {
+    
+    @EnvironmentObject var shop: Shop
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Protective Gear")
+            
+            Text(shop.selectedProduct?.name ?? sampleProduct.name)
+                .font(.largeTitle)
+                .fontWeight(.black)
+        }
+        .foregroundColor(.white)
     }
 }
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderView()
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }

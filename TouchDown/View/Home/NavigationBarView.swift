@@ -9,12 +9,43 @@ import SwiftUI
 
 struct NavigationBarView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Button(action: {
+                
+            }){
+                Image(systemName: "magnifyingglass")
+                    .font(.title)
+                    .foregroundColor(.black)
+            }
+            
+            Spacer()
+            
+            LogoView()
+            
+            Spacer()
+            
+            ZStack{
+                Button(action: {
+                    
+                }){
+                    Image(systemName: "cart")
+                        .font(.title)
+                        .foregroundColor(.black)
+                }
+                
+                Circle()
+                    .frame(width: 14, height: 14)
+                    .foregroundColor(.red)
+                    .offset(x: 13, y: -10)
+            }
+        }
     }
 }
 
 struct NavigationBarView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationBarView()
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }

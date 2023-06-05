@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct FeaturedItemView: View {
+    
+    let player: Player
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(player.image)
+            .resizable()
+            .scaledToFit()
+            .cornerRadius(12)
     }
 }
 
 struct FeaturedItemView_Previews: PreviewProvider {
+    
+    static var players: [Player] = Bundle.main.decode("player.json")
+    
     static var previews: some View {
-        FeaturedItemView()
+        FeaturedItemView(player: players[1])
     }
 }
